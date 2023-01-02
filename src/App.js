@@ -3,6 +3,7 @@ import "./App.css";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 import SimpleFormInput from "./FormComponent/SimpleFormInput/SimpleFormInput";
+import Ingredients from "./HookComponent/Ingredients/Ingredients";
 
 const dummyExpenses = [
   {
@@ -44,6 +45,9 @@ function App() {
       <Expenses expenses={expenses}></Expenses>
       <div className="app">
         <SimpleFormInput></SimpleFormInput>
+      </div>
+      <div className="app">
+        <Ingredients></Ingredients>
       </div>
     </div>
   );

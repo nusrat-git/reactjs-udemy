@@ -63,7 +63,7 @@ body {
   flex: 1;
 }
 
-button {
+.form-actions button {
   font: inherit;
   background-color: #240370;
   color: white;
@@ -73,15 +73,15 @@ button {
   cursor: pointer;
 }
 
-button:hover,
-button:active {
+.form-actions button:hover,
+.form-actions button:active {
   background-color: #33059e;
   border-color: #33059e;
 }
 
-button:disabled,
-button:disabled:hover,
-button:disabled:active {
+.form-actions button:disabled,
+.form-actions button:disabled:hover,
+.form-actions button:disabled:active {
   background-color: #ccc;
   color: #292929;
   border-color: #ccc;
