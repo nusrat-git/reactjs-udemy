@@ -1,17 +1,23 @@
 import React, { useState } from "react";
 import ExpenseFilter from "../ExpenseFilter/ExpenseFilter";
-import ExpenseItem from "../ExpenseItem/ExpenseItem";
+import ExpenseList from "../ExpneseList/ExpenseList";
 import "./Expenses.css";
 
 const Expenses = ({ expenses }) => {
   const [filterYear, setFilterYear] = useState("2020");
+
+  const filteredExpenses = expenses.filter(
+    (filtered) => filtered.date.getFullYear().toString() === filterYear
+  );
+
   return (
     <div className="expenses">
       <ExpenseFilter
         setFilterYear={setFilterYear}
         filterYear={filterYear}
       ></ExpenseFilter>
-      <ExpenseItem
+      <ExpenseList filteredExpenses={filteredExpenses}></ExpenseList>
+      {/* <ExpenseItem
         title={expenses[0].title}
         amount={expenses[0].amount}
         date={expenses[0].date}
@@ -30,7 +36,7 @@ const Expenses = ({ expenses }) => {
         title={expenses[3].title}
         amount={expenses[3].amount}
         date={expenses[3].date}
-      ></ExpenseItem>
+      ></ExpenseItem> */}
     </div>
   );
 };
