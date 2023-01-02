@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
+import SimpleFormInput from "./FormComponent/SimpleFormInput/SimpleFormInput";
 
 const dummyExpenses = [
   {
@@ -38,9 +39,12 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div>
       <NewExpense addExpense={addExpense}></NewExpense>
-      <Expenses expenses={expenses} ></Expenses>
+      <Expenses expenses={expenses}></Expenses>
+      <div className="app">
+        <SimpleFormInput></SimpleFormInput>
+      </div>
     </div>
   );
 }
