@@ -5,11 +5,13 @@ const SimpleFormInput = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [touchedName, setTouchedName] = useState(false);
+  const [touchedEmail, setTouchedEmail] = useState(false);
   const [formIsValid, setFormIsValid] = useState(false);
 
   const enteredNameIsValid = name.trim() !== "";
   const enteredEmailIsValid = email.trim() !== "";
   const nameInputIsValid = !enteredNameIsValid && touchedName;
+  const emailInputIsValid = !enteredEmailIsValid && touchedEmail;
 
   useEffect(() => {
     if (enteredNameIsValid && enteredEmailIsValid) {
@@ -20,6 +22,10 @@ const SimpleFormInput = () => {
   }, [enteredNameIsValid, enteredEmailIsValid]);
 
   const nameInputClasses = nameInputIsValid
+    ? "form-control invalid"
+    : "form-control";
+
+  const emailInputClasses = emailInputIsValid
     ? "form-control invalid"
     : "form-control";
 
@@ -36,16 +42,18 @@ const SimpleFormInput = () => {
     setName("");
     setEmail("");
     setTouchedName(false);
+    setTouchedEmail(false);
   };
 
   const nameBlurHandler = (e) => {
     e.preventDefault();
     setTouchedName(true);
   };
-  // const emailBlurHandler = (e) => {
-  //   e.preventDefault();
-  //   setTouchedName(true);
-  // };
+
+  const emailBlurHandler = (e) => {
+    e.preventDefault();
+    setTouchedEmail(true);
+  };
 
   // const nameChangeHandler = (e) => {
   //   setName(e.target.value);
@@ -72,17 +80,17 @@ const SimpleFormInput = () => {
           )}
         </div>
         <div>
-          <div className={nameInputClasses}>
+          <div className={emailInputClasses}>
             <label htmlFor="email">Your Email</label>
             <input
               type="email"
               id="email"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
-              onBlur={nameBlurHandler}
+              onBlur={emailBlurHandler}
             />
           </div>
-          {nameInputIsValid && (
+          {emailInputIsValid && (
             <div>
               <p className="error-text">Email is required!!</p>
             </div>
